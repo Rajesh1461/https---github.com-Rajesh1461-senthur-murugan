@@ -1,0 +1,660 @@
+/* Root theme */
+:root {
+  --color-primary: #0b3d91; /* deep blue */
+  --color-accent: #1b9e77; /* green */
+  --color-text: #0f172a;
+  --color-muted: #64748b;
+  --color-bg: #ffffff;
+  --color-surface: #f8fafc;
+  --radius: 14px;
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.06);
+  --shadow-md: 0 10px 20px rgba(2, 12, 27, 0.08);
+  --shadow-lg: 0 24px 48px rgba(2, 12, 27, 0.12);
+
+  /* Header theme (editable) */
+  --header-bg: #050505ee;
+  --header-fg: #c7cbcf;
+  --header-border: rgba(223, 10, 10, 0.267);
+  --header-toggle-border: rgba(223, 10, 10, 0.267);
+}
+
+/* Base */
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial,
+    'Apple Color Emoji', 'Segoe UI Emoji';
+  color: var(--color-text);
+  background: var(--color-bg);
+  line-height: 1.6;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+.container {
+  width: min(1120px, 92%);
+  margin: 0 auto;
+}
+
+.section {
+  padding: 80px 0;
+  scroll-margin-top: 88px;
+}
+
+.section-title {
+  margin: 0 0 24px;
+  font-size: 32px;
+  line-height: 1.25;
+}
+
+/* Header / Nav */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: var(--header-bg);
+  color: var(--header-fg);
+  backdrop-filter: saturate(180%) blur(8px);
+  border-bottom: 1px solid var(--header-border);
+}
+
+.nav-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 90px;
+  width: 100%;
+  margin: 0;
+  
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--color-primary);
+  font-weight: 700;
+  text-decoration: none;
+}
+
+/* Ensure 10px gap between logo and SMname in header */
+.site-header .brand {
+  gap: 10px;
+  color: var(--header-fg);
+}
+
+/* Ensure SMname wordmark fits within the nav bar */
+.brand span img {
+  height: 50px;
+  width: auto;
+  object-fit: contain;
+}
+
+.nav {
+  position: relative;
+}
+
+/* Shift main navigation 100px left on desktop */
+.site-header .nav[aria-label="Main navigation"] {
+  transform: translateX(-100px);
+}
+
+.nav-list {
+  list-style: none;
+  display: flex;
+  gap: 22px;
+  padding: 0;
+  margin: 0;
+}
+
+.nav-list a {
+  text-decoration: none;
+  color: var(--color-text);
+  font-weight: 500;
+}
+
+.nav-list a:hover {
+  color: var(--color-primary);
+}
+
+.nav-toggle {
+  display: none;
+  width: 42px;
+  height: 42px;
+  background: transparent;
+  border: 1px solid rgba(15, 23, 42, 0.1);
+  border-radius: 10px;
+}
+
+.nav-toggle-bar {
+  display: block;
+  width: 20px;
+  height: 2px;
+  margin: 5px auto;
+  background: var(--color-text);
+}
+
+/* Ensure proper contrast when header has a colored background */
+.site-header .nav-list a {
+  color: var(--header-fg);
+}
+
+.site-header .nav-list a:hover {
+  opacity: 0.9;
+}
+
+.site-header .nav-toggle {
+  border-color: var(--header-toggle-border);
+}
+
+.site-header .nav-toggle-bar {
+  background: var(--header-fg);
+}
+
+/* Hero */
+.hero {
+  position: relative;
+  padding-top: 120px;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../images/wall.webp');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+}
+
+.hero-inner {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  align-items: center;
+  gap: 40px;
+  margin-top: 100px;
+}
+
+/* Ensure hero text is above wallpaper */
+.hero-copy {
+  position: relative;
+  z-index: 1;
+  margin-left: -70px;
+  margin-top: 80px;
+}
+
+/* Make hero text and CTAs white on wallpaper */
+.hero-copy h1 {
+  color: #ffffff;
+}
+.hero-copy .tagline {
+  color: #ffffff;
+  margin-top: -50px;
+}
+.hero-copy .btn-primary {
+  color: #ffffff;
+}
+.hero-copy .btn-outline {
+  color: #ffffff;
+  background: transparent;
+  border-color: rgba(255, 255, 255, 0.85);
+}
+.hero-copy .btn-outline:hover {
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.08);
+  border-color: #ffffff;
+}
+
+/* Hide the separate hero image since wallpaper is used */
+.hero .hero-visual {
+  display: none;
+}
+
+.hero-copy h1 {
+  font-size: 42px;
+  line-height: 1.15;
+  margin: 0 0 12px;
+}
+
+.tagline {
+  font-size: 18px;
+  color: var(--color-muted);
+  margin: 0 0 26px;
+}
+
+.hero-cta {
+  display: flex;
+  gap: 14px;
+}
+
+.hero-wave {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -1px;
+  height: 80px;
+  background: radial-gradient(80% 80% at 50% 0%, rgba(27, 158, 119, 0.15), transparent 70%);
+}
+
+/* Lottie hero container sizing */
+.hero-video {
+  width: 100%;
+  max-width: 960px;
+  height: 420px;
+  border-radius: 12px;
+  overflow: hidden;
+  transform: translateX(-35px);
+}
+
+/* About */
+.grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+}
+
+/* Light blue gradient background for About container */
+.about .container.grid-2 {
+  background: linear-gradient(135deg, rgba(59, 130, 246, 0.10), rgba(147, 197, 253, 0.20));
+  border-radius: var(--radius);
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  min-height: 100vh;
+  align-items: center;
+  margin-top: -150px;
+}
+
+/* About background video layering */
+.about {
+  position: relative;
+  min-height: 100vh;
+  overflow: hidden;
+}
+.about-video-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+.about-video-bg img,
+.about-video-bg video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+
+}
+
+.about-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-top: 18px;
+    transform: translateX(-100px);
+}
+
+/* Shift only the About Us heading 100px left */
+.about .about-copy h2 {
+  color: #18bb4e;
+  text-shadow: 1px 0 0 rgba(15, 23, 42, 0.8), -1px 0 0 rgba(15, 23, 42, 0.8), 0 1px 0 rgba(15, 23, 42, 0.8), 0 -1px 0 rgba(15, 23, 42, 0.8);
+  margin-left: -100px;
+}
+
+/* Shift only the top-level About description paragraph 100px left */
+.about .about-copy > p {
+  color: #d89cae;
+  margin-left: -100px; margin-right: 110px;
+}
+
+.about .about-media img {
+  margin-left: 70px;
+  margin-top: 80px;
+}
+
+.about-card {
+  padding: 20px 18px;
+  min-height: 240px;
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  border-radius: var(--radius);
+  background: #92a2cf31;
+  box-shadow: var(--shadow-sm);
+  
+}
+
+/* Services */
+.services {
+  background: var(--color-surface);
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+
+.service-card {
+  padding: 24px;
+  background: #92a2cf31;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-md);
+  border: 1px solid rgba(15, 23, 42, 0.06);
+}
+
+.service-card h3 {
+  margin-top: 0;
+}
+
+.service-card ul {
+  margin: 0;
+  padding-left: 18px;
+}
+
+/* Properties */
+.properties-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.property-card {
+  background: #fff;
+  border-radius: var(--radius);
+  overflow: hidden;
+  border: 1px solid rgba(15, 23, 42, 0.06);
+  box-shadow: var(--shadow-md);
+  transition: transform 220ms ease, box-shadow 220ms ease;
+}
+
+.property-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+}
+
+.property-body {
+  padding: 16px 18px 20px;
+}
+
+.property-meta {
+  margin: 4px 0 8px;
+  color: var(--color-muted);
+}
+
+.property-price {
+  font-weight: 700;
+  color: var(--color-primary);
+  margin: 0 0 12px;
+}
+
+.property-actions {
+  display: flex;
+  gap: 10px;
+}
+
+/* Financial */
+.financial-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.financial-card {
+  padding: 22px;
+  background: #92a2cf31;
+  border: 1px solid rgba(15, 23, 42, 0.06);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
+}
+
+/* Testimonials */
+.testimonials {
+  background: var(--color-surface);
+}
+
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.testimonial {
+  margin: 0;
+  padding: 20px 22px;
+  background: #92a2cf31;
+  border-radius: var(--radius);
+  border: 1px solid rgba(15, 23, 42, 0.06);
+  box-shadow: var(--shadow-sm);
+}
+
+.testimonial blockquote {
+  margin: 0 0 12px;
+}
+
+/* Contact */
+.contact-wrap {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 28px;
+}
+
+.contact-form {
+  padding: 20px;
+  background: #92a2cf31;
+  border-radius: var(--radius);
+  border: 1px solid rgba(15, 23, 42, 0.06);
+  box-shadow: var(--shadow-sm);
+}
+
+.form-field {
+  display: grid;
+  gap: 8px;
+  margin-bottom: 14px;
+}
+
+.form-field input,
+.form-field textarea {
+  padding: 12px 14px;
+  border-radius: 10px;
+  border: 1px solid rgba(15, 23, 42, 0.14);
+  font: inherit;
+}
+
+.form-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.contact-info .info-block,
+.contact-info .map-block {
+  background: #92a2cf31;
+  border-radius: var(--radius);
+  border: 1px solid rgba(15, 23, 42, 0.06);
+  box-shadow: var(--shadow-sm);
+  padding: 20px;
+}
+
+.contact-info {
+  display: grid;
+  gap: 16px;
+}
+
+/* CTA */
+.section.cta-final {
+  background: #466070;
+}
+
+.cta-final-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Make key sections full-height with shared background image */
+.services,
+.properties,
+.financial,
+.testimonials,
+.contact {
+  position: relative;
+  min-height: 100vh;
+  overflow: hidden;
+  background-image: url('../images/about.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* Footer */
+.site-footer {
+  padding: 40px 0 60px;
+  background: #0b1220;
+  color: #e5e7eb;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 2fr;
+  gap: 24px;
+}
+
+.site-footer a {
+  color: #cbd5e1;
+  text-decoration: none;
+}
+
+.site-footer a:hover {
+  color: #ffffff;
+}
+
+.footer-brand .brand span {
+  color: #e5e7eb;
+}
+
+.social-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 8px;
+}
+
+.disclaimer {
+  font-size: 12px;
+  color: #9ca3af;
+}
+
+/* Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 18px;
+  border-radius: 12px;
+  border: 1px solid transparent;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.btn-primary {
+  background: var(--color-primary);
+  color: #fff;
+}
+
+.btn-primary:hover {
+  filter: brightness(1.07);
+}
+
+.btn-outline {
+  background: #fff;
+  border-color: rgba(15, 23, 42, 0.18);
+  color: var(--color-text);
+}
+
+.btn-outline:hover {
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+}
+
+/* Floating WhatsApp */
+.floating-wa {
+  position: fixed;
+  right: 18px;
+  bottom: 18px;
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  background: var(--color-accent);
+  color: #fff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  text-decoration: none;
+  box-shadow: var(--shadow-lg);
+}
+
+.floating-wa:hover {
+  filter: brightness(1.06);
+}
+
+/* Scroll reveal */
+.reveal-on-scroll {
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity 500ms ease, transform 500ms ease;
+}
+
+.reveal-on-scroll.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Responsive */
+@media (max-width: 960px) {
+  /* Reset nav shift on mobile */
+  .site-header .nav[aria-label="Main navigation"] {
+    transform: none;
+    
+  }
+  .hero-inner {
+    grid-template-columns: 1fr;
+    padding-bottom: 20px;
+  }
+  .grid-2 {
+    grid-template-columns: 1fr;
+  }
+  .services-grid,
+  .properties-grid,
+  .financial-grid,
+  .testimonials-grid,
+  .contact-wrap,
+  .footer-grid {
+    grid-template-columns: 1fr;
+  }
+  .nav-toggle {
+    display: inline-block;
+  }
+  .nav-list {
+    position: absolute;
+    right: 0;
+    top: 60px;
+    background: #fff;
+    border: 1px solid rgba(15, 23, 42, 0.08);
+    border-radius: 12px;
+    padding: 14px;
+    flex-direction: column;
+    box-shadow: var(--shadow-md);
+    display: none;
+  }
+  .nav-list.is-open {
+    display: flex;
+  }
+}
+
+

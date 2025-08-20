@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+
+# Update this to your live domain
+Sitemap: https://www.example.com/sitemap.xml
+
+
