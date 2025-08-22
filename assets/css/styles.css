@@ -967,44 +967,436 @@ img[src$="SMname.png"] {
 
 /* Responsive */
 @media (max-width: 960px) {
+  /* Container adjustments */
+  .container {
+    width: 95%;
+    padding: 0 10px;
+  }
+  
+  /* Section padding adjustments */
+  .section {
+    padding: 40px 0;
+  }
+  
+  /* Header adjustments */
+  .nav-container {
+    height: 70px;
+    padding: 0 15px;
+  }
+  
   /* Reset nav shift on mobile */
   .site-header .nav[aria-label="Main navigation"] {
     transform: none;
-    
   }
-  .hero-inner {
-    grid-template-columns: 1fr;
-    padding-bottom: 20px;
+  
+  /* Brand adjustments for mobile */
+  .site-header .brand img[src$="logo.svg"] {
+    transform: translateX(20px) scale(1);
   }
-  .grid-2 {
-    grid-template-columns: 1fr;
+  
+  .site-header .brand img[src$="SMname.png"] {
+    transform: translateX(40px) scale(1.2);
   }
-  .services-grid,
-  .services-layout,
-  .properties-grid,
-  .financial-grid,
-  .testimonials-grid,
-  .contact-wrap,
-  .footer-grid {
-    grid-template-columns: 1fr;
-  }
+  
+  /* Navigation toggle */
   .nav-toggle {
     display: inline-block;
   }
+  
   .nav-list {
     position: absolute;
     right: 0;
-    top: 60px;
-    background: #fff;
-    border: 1px solid rgba(15, 23, 42, 0.08);
+    top: 70px;
+    background: var(--header-bg);
+    border: 1px solid var(--header-border);
     border-radius: 12px;
-    padding: 14px;
+    padding: 20px;
     flex-direction: column;
+    gap: 15px;
     box-shadow: var(--shadow-md);
     display: none;
+    min-width: 200px;
   }
+  
   .nav-list.is-open {
     display: flex;
+  }
+  
+  .nav-list a {
+    padding: 10px 15px;
+    border-radius: 8px;
+    transition: background-color 0.2s ease;
+  }
+  
+  .nav-list a:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+  
+  /* Hero section mobile adjustments */
+  .hero {
+    padding-top: 80px;
+    min-height: 80vh;
+  }
+  
+  .hero-inner {
+    grid-template-columns: 1fr;
+    gap: 30px;
+    margin-top: 40px;
+    text-align: center;
+  }
+  
+  .hero-copy {
+    margin-left: 0;
+    margin-top: 20px;
+  }
+  
+  .hero-copy h1 {
+    font-size: 32px;
+    line-height: 1.2;
+  }
+  
+  .tagline {
+    font-size: 16px;
+    margin: 0 0 20px;
+  }
+  
+  .hero-cta {
+    flex-direction: column;
+    gap: 12px;
+    align-items: center;
+  }
+  
+  .hero-cta .btn {
+    width: 100%;
+    max-width: 280px;
+    padding: 14px 20px;
+  }
+  
+  /* Hero video adjustments */
+  .hero-video {
+    height: 300px;
+    transform: none;
+    margin: 0 auto;
+  }
+  
+  /* About section mobile adjustments */
+  .about .container.grid-2 {
+    margin-top: -50px;
+    min-height: auto;
+    padding: 30px 20px;
+  }
+  
+  .grid-2 {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+  
+  .about .about-copy h2 {
+    margin-left: 0;
+    font-size: 28px;
+    text-align: center;
+  }
+  
+  .about .about-copy > p {
+    margin-left: 0;
+    margin-right: 0;
+    text-align: center;
+  }
+  
+  .about .about-media img {
+    margin-left: 0;
+    margin-top: 20px;
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+    display: block;
+  }
+  
+  .about-cards {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    transform: none;
+    margin-top: 20px;
+  }
+  
+  .about-card {
+    min-height: auto;
+    padding: 20px;
+  }
+  
+  /* Services section mobile adjustments */
+  .services .container {
+    margin-top: -30px;
+  }
+  
+  .services-layout {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+  
+  .services-illustration {
+    text-align: center;
+  }
+  
+  .services-illustration img[src$="service.png"] {
+    width: 80%;
+    transform: none;
+    margin: 0 auto;
+  }
+  
+  .services-illustration .finance-image {
+    transform: none;
+    width: 80%;
+    margin: 20px auto 0;
+  }
+  
+  .services-grid {
+    transform: none;
+    margin: 0;
+  }
+  
+  .service-card {
+    padding: 20px;
+  }
+  
+  .cinematic-scroll {
+    height: 150px;
+  }
+  
+  .cinematic-inner p {
+    font-size: 14px;
+    line-height: 1.7;
+  }
+  
+  /* Properties section mobile adjustments */
+  .properties-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  
+  .properties-tabs {
+    margin-left: 0;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 30px;
+  }
+  
+  .properties-tabs .btn {
+    padding: 10px 16px;
+    font-size: 14px;
+  }
+  
+  .properties .section-title {
+    font-size: 28px;
+    transform: none;
+    margin-bottom: 20px;
+  }
+  
+  /* Reset all property card positioning for mobile */
+  .properties-grid .property-card,
+  .properties-grid .property-card:nth-child(1),
+  .properties-grid .property-card:nth-child(2),
+  .properties-grid .property-card:nth-child(3),
+  .properties-grid .property-card:nth-child(4),
+  .properties-grid .property-card:nth-child(5),
+  .properties-grid .property-card:nth-child(6),
+  .properties-grid .property-card:nth-child(7),
+  .properties-grid .property-card:nth-child(8) {
+    transform: none;
+    width: 100%;
+    justify-self: stretch;
+    grid-column: auto;
+  }
+  
+  .properties-grid .align-under-logo {
+    margin-left: 0;
+    margin-right: 0;
+    translate: none;
+  }
+  
+  .property-card {
+    max-width: 400px;
+    margin: 0 auto;
+  }
+  
+  .property-body {
+    padding: 15px;
+  }
+  
+  .property-body h3 {
+    font-size: 16px;
+    line-height: 1.4;
+  }
+  
+  /* Financial section mobile adjustments */
+  .financial-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  
+  .financial-card {
+    padding: 20px;
+  }
+  
+  /* Testimonials section mobile adjustments */
+  .testimonials-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  
+  .testimonial {
+    padding: 20px;
+  }
+  
+  /* Contact section mobile adjustments */
+  .contact-wrap {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+  
+  .contact-form {
+    padding: 20px;
+  }
+  
+  .form-field input,
+  .form-field textarea {
+    padding: 14px 16px;
+    font-size: 16px; /* Prevents zoom on iOS */
+  }
+  
+  .form-actions {
+    flex-direction: column;
+    gap: 12px;
+  }
+  
+  .form-actions .btn {
+    width: 100%;
+    padding: 14px 20px;
+  }
+  
+  .contact-info .info-block,
+  .contact-info .map-block {
+    padding: 20px;
+  }
+  
+  /* Footer mobile adjustments */
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 30px;
+    text-align: center;
+  }
+  
+  /* CTA section mobile adjustments */
+  .cta-final-inner {
+    flex-direction: column;
+    gap: 20px;
+    text-align: center;
+  }
+  
+  .cta-final-inner h2 {
+    font-size: 24px;
+  }
+  
+  .cta-final-inner .btn {
+    width: 100%;
+    max-width: 280px;
+    padding: 14px 20px;
+  }
+  
+  /* Floating WhatsApp mobile adjustments */
+  .floating-wa {
+    right: 15px;
+    bottom: 15px;
+    width: 50px;
+    height: 50px;
+    font-size: 14px;
+  }
+  
+  /* Section title mobile adjustments */
+  .section-title {
+    font-size: 28px;
+    transform: none;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  /* Utility adjustments for mobile */
+  .shift-right-200,
+  .shift-left-50 {
+    margin-left: 0;
+    transform: none;
+    width: auto;
+  }
+}
+
+/* Additional mobile optimizations for smaller screens */
+@media (max-width: 480px) {
+  .container {
+    width: 98%;
+    padding: 0 5px;
+  }
+  
+  .section {
+    padding: 30px 0;
+  }
+  
+  .hero-copy h1 {
+    font-size: 28px;
+  }
+  
+  .tagline {
+    font-size: 15px;
+  }
+  
+  .hero-video {
+    height: 250px;
+  }
+  
+  .about-card {
+    padding: 15px;
+  }
+  
+  .service-card {
+    padding: 15px;
+  }
+  
+  .property-body {
+    padding: 12px;
+  }
+  
+  .property-body h3 {
+    font-size: 15px;
+  }
+  
+  .financial-card {
+    padding: 15px;
+  }
+  
+  .testimonial {
+    padding: 15px;
+  }
+  
+  .contact-form {
+    padding: 15px;
+  }
+  
+  .contact-info .info-block,
+  .contact-info .map-block {
+    padding: 15px;
+  }
+  
+  .nav-list {
+    min-width: 180px;
+    right: 10px;
+  }
+  
+  .floating-wa {
+    right: 10px;
+    bottom: 10px;
+    width: 45px;
+    height: 45px;
+    font-size: 12px;
   }
 }
 
