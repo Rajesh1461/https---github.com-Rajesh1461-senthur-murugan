@@ -107,7 +107,10 @@
             <img src="assets/images/about.webp" alt="Our story" loading="lazy" width="680" height="520" />
           </div>
           <div class="about-copy reveal-on-scroll">
-            <h2>About Us</h2>
+            <video autoplay muted loop playsinline poster="assets/images/about.jpg" style="width:15%;height:auto;border-radius:8px;transform:translateX(-110px);">
+              <source src="assets/images/title-about.webm" type="video/webm" />
+              Your browser does not support the video tag.
+            </video>
             <p>
               We are a trusted partner for real estate and financial services, helping
               families and investors make informed decisions. Our team brings deep market
@@ -134,27 +137,44 @@
       <!-- Services -->
       <section id="services" class="section services">
         <div class="container">
-          <h2 class="section-title">Our Services</h2>
-          <div class="services-grid">
-            <div class="service-card reveal-on-scroll">
-              <h3>Real Estate Services</h3>
-              <ul>
-                <li>Residential & Commercial Property Sales</li>
-                <li>Property Consulting & Market Analysis</li>
-                <li>Site Visits & Documentation Support</li>
-                <li>Legal & Registration Assistance</li>
-                <li>End-to-end Transaction Management</li>
-              </ul>
+          <video class="section-title" autoplay muted loop playsinline>
+            <source src="assets/images/Our%20Service.webm" type="video/webm" />
+            Your browser does not support the video tag.
+          </video>
+          <div class="services-layout">
+            <div class="services-illustration reveal-on-scroll from-right">
+              <img src="assets/images/service.png" alt="Our services illustration" loading="lazy" />
+              <img src="assets/images/finance.png" alt="Financial services illustration" loading="lazy" class="finance-image" />
             </div>
-            <div class="service-card reveal-on-scroll">
-              <h3>Financial Services</h3>
-              <ul>
-                <li>Investment Planning & Portfolio Advisory</li>
-                <li>Home, Mortgage & Business Loans</li>
-                <li>Wealth Management & Retirement Planning</li>
-                <li>Tax-efficient Strategies</li>
-                <li>Insurance & Risk Management</li>
-              </ul>
+            <div class="services-grid">
+              <div class="service-card reveal-on-scroll from-right">
+                <h3>Real Estate Services</h3>
+                <ul>
+                  <li>
+                    <div class="cinematic-scroll" aria-label="Cinematic scrolling description">
+                      <div class="cinematic-tilt">
+                        <div class="cinematic-inner">
+                          <p>At Senthur Murugan Real Estate & Financial Services, we are committed to guiding you every step of the way in your real estate journey. Whether you’re buying, selling, investing, or seeking financial solutions, we provide trusted expertise and personalized service. Our team takes the time to understand your unique goals, offering tailored advice and strategies to help you make confident decisions. With a focus on integrity, transparency, and customer satisfaction, we strive to build long-term relationships and deliver results that exceed expectations. From property consultations to financial planning, we are here to simplify the process, support your ambitions, and ensure your journey is smooth and successful.</p>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+              <div class="service-card reveal-on-scroll from-right">
+                <h3>Financial Services</h3>
+                <ul>
+                  <li>
+                    <div class="cinematic-scroll" aria-label="Cinematic scrolling financial description">
+                      <div class="cinematic-tilt">
+                        <div class="cinematic-inner">
+                          <p>Our Private Financial Services are designed to provide you with secure, personalized, and trustworthy financial solutions. Whether you are looking for investment opportunities, property financing, business loans, or personal credit solutions, we ensure complete confidentiality and customized support. We aim to simplify complex financial processes and offer flexible options that fit your unique needs. With a strong focus on integrity, transparency, and long-term growth, we help you achieve financial stability and success.</p>
+                        </div>
+                      </div>
+                    </div>
+                  </li>               
+                </ul>
+              </div>
             </div>
           </div>
         </div>
@@ -164,31 +184,92 @@
       <section id="properties" class="section properties">
         <div class="container">
           <h2 class="section-title">Featured Properties</h2>
+          <div class="properties-tabs" role="tablist" aria-label="Property categories">
+            <span class="btn btn-outline shift-left-50" role="tab" aria-selected="true">Available Properties</span>
+            <span class="btn btn-outline shift-right-200" role="tab" aria-selected="false">Completed Properties</span>
+          </div>
           <div class="properties-grid">
-            <article class="property-card reveal-on-scroll">
-              <img src="assets/images/wall.webp" alt="Property 1" loading="lazy" width="420" height="280" />
+            <article class="property-card reveal-on-scroll align-under-logo">
+              <img src="assets/images/property1.png" alt="Property 2" loading="lazy" width="420" height="280" />
               <div class="property-body">
-                <h3>Luxury 3 BHK Apartment</h3>
-                <p class="property-meta">Coimbatore • 1,450 sq.ft</p>
-                <p class="property-price">₹ 82,00,000</p>
-                <div class="property-actions">
-                  <button class="btn btn-primary enquire-btn" data-title="Luxury 3 BHK Apartment">Enquire</button>
-                </div>
-              </div>
-            </article>
-            <article class="property-card reveal-on-scroll">
-              <img src="assets/images/about.webp" alt="Property 2" loading="lazy" width="420" height="280" />
-              <div class="property-body">
-                <h3>Premium Villa Plot</h3>
-                <p class="property-meta">Trichy • 2,400 sq.ft</p>
-                <p class="property-price">₹ 36,00,000</p>
+                <h3>Dry Garden Land Type – I  & Residential Class I Type – I Classification for MOD Only (Sharing or Collateral)</h3>
+                <p class="property-meta">Dharapuram • 11.15 Acres</p>
+                <p class="property-price">Asking Price  <span class="zoom-price">₹ 5,00,00,000</span></p>
+                <p class="property-price">Market Value <span class="zoom-price">₹ 12,00,00,000</span></p>
                 <div class="property-actions">
                   <button class="btn btn-primary enquire-btn" data-title="Premium Villa Plot">Enquire</button>
                 </div>
               </div>
             </article>
             <article class="property-card reveal-on-scroll">
-              <img src="assets/images/property-3.svg" alt="Property 3" loading="lazy" width="420" height="280" />
+              <img src="assets/images/wall.webp" alt="Property 1" loading="lazy" width="420" height="280" />
+              <div class="property-body">
+                <h3>Dry Garden Land Type – I  & Residential Class I Type – I Classification for MOD Only (Sharing or Collateral)</h3>
+                <p class="property-meta">Dharapuram • 11.15 Acres</p>
+                <p class="property-price">Asking Price <span class="zoom-price">₹ 5,00,00,000</span></p>
+                <p class="property-price">Market Value <span class="zoom-price">₹ 12,00,00,000</span></p>
+                <div class="property-actions">
+                  <button class="btn btn-primary enquire-btn" data-title="Dry Garden Land Type – I & Residential Class I Type – I Classification for MOD Only (Sharing or Collateral)">Enquire</button>
+                </div>
+              </div>
+            </article>
+            <article class="property-card reveal-on-scroll">
+              <img src="assets/images/completed1.jpeg" alt="Property 3" loading="lazy" width="420" height="280" />
+              <div class="property-body">
+                <h3>Land with House</h3>
+                <p class="property-meta">Tirupur • 6.75 Cents</p>
+                <p class="property-price">₹ 1,55,00,000</p>
+                <div class="property-actions">
+                  <button class="btn btn-primary enquire-btn" data-title="Commercial Space">Enquire</button>
+                </div>
+              </div>
+            </article>
+            <article class="property-card reveal-on-scroll">
+              <img src="assets/images/completed4.jpg" alt="Property 4" loading="lazy" width="420" height="280" />
+              <div class="property-body">
+                <h3>Commercial Space</h3>
+                <p class="property-meta">Salem • 1,200 sq.ft</p>
+                <p class="property-price">₹ 55,00,000</p>
+                <div class="property-actions">
+                  <button class="btn btn-primary enquire-btn" data-title="Commercial Space">Enquire</button>
+                </div>
+              </div>
+            </article>
+            <article class="property-card reveal-on-scroll">
+              <img src="assets/images/completed3.jpg" alt="Property 5" loading="lazy" width="420" height="280" />
+              <div class="property-body">
+                <h3>Commercial Space</h3>
+                <p class="property-meta">Salem • 1,200 sq.ft</p>
+                <p class="property-price">₹ 55,00,000</p>
+                <div class="property-actions">
+                  <button class="btn btn-primary enquire-btn" data-title="Commercial Space">Enquire</button>
+                </div>
+              </div>
+            </article>
+            <article class="property-card reveal-on-scroll">
+              <img src="assets/images/completed2.png" alt="Property 6" loading="lazy" width="420" height="280" />
+              <div class="property-body">
+                <h3>Commercial Space</h3>
+                <p class="property-meta">Salem • 1,200 sq.ft</p>
+                <p class="property-price">₹ 55,00,000</p>
+                <div class="property-actions">
+                  <button class="btn btn-primary enquire-btn" data-title="Commercial Space">Enquire</button>
+                </div>
+              </div>
+            </article>
+            <article class="property-card reveal-on-scroll">
+              <img src="assets/images/property-3.svg" alt="Property 7" loading="lazy" width="420" height="280" />
+              <div class="property-body">
+                <h3>Commercial Space</h3>
+                <p class="property-meta">Salem • 1,200 sq.ft</p>
+                <p class="property-price">₹ 55,00,000</p>
+                <div class="property-actions">
+                  <button class="btn btn-primary enquire-btn" data-title="Commercial Space">Enquire</button>
+                </div>
+              </div>
+            </article>
+            <article class="property-card reveal-on-scroll">
+              <img src="assets/images/property-3.svg" alt="Property 8" loading="lazy" width="420" height="280" />
               <div class="property-body">
                 <h3>Commercial Space</h3>
                 <p class="property-meta">Salem • 1,200 sq.ft</p>
@@ -283,7 +364,10 @@
                 <h3>Reach Us</h3>
                 <p>
                   <strong>Phone:</strong> <a id="tel-link" href="tel:+919789655564">+91 97896 55564</a><br />
-                  <strong>Email:</strong> <a id="mail-link" href="mailto:senthurmuruganrealtors@gmail.com">senthurmuruganrealtors@gmail.com</a>
+                  <strong>Phone:</strong> <a id="tel-link" href="tel:+919363676234">+91 93636 76234</a><br />
+                  <strong>Email:</strong> <a id="mail-link" href="mailto:senthurmuruganrealtors@gmail.com">senthurmuruganrealtors@gmail.com</a><br />
+                  <strong>Email:</strong> <a id="mail-link" href="mailto:rajeshkumar757575@gmail.com">rajeshkumar757575@gmail.com</a><br />
+                  <strong>Email:</strong> <a id="mail-link" href="mailto:ks.udhaya1886@gmail.com">ks.udhaya1886@gmail.com</a>
                 </p>
                 <p>
                   <strong>Office:</strong><br />

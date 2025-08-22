@@ -55,6 +55,7 @@ img {
   margin: 0 0 24px;
   font-size: 32px;
   line-height: 1.25;
+  transform: translateX(450px) translateY(-30px); 
 }
 
 /* Header / Nav */
@@ -98,6 +99,40 @@ img {
   height: 50px;
   width: auto;
   object-fit: contain;
+}
+
+/* Shift header brand images (logo and SMname) 20px right without affecting layout */
+.site-header .brand img {
+  transform: translateX(50px);
+    transform-origin: left center;
+}
+
+/* Scale logo.svg by 20% everywhere without affecting layout */
+img[src$="logo.svg"] {
+  transform: scale(1.2);
+  transform-origin: left center;
+  /* Subtle white glow */
+  filter: drop-shadow(0 0 1px rgba(255, 255, 255, 0.70))
+          drop-shadow(0 0 3px rgba(255, 255, 255, 0.45))
+          drop-shadow(0 0 6px rgba(255, 255, 255, 0.25));
+}
+
+/* Apply the same subtle white glow to SMname wordmark */
+img[src$="SMname.png"] {
+  filter: drop-shadow(0 0 1px rgba(255, 255, 255, 0.70))
+          drop-shadow(0 0 3px rgba(255, 255, 255, 0.45))
+          drop-shadow(0 0 6px rgba(255, 255, 255, 0.25));
+}
+
+/* In header, keep the 50px right shift and scale only the logo.svg */
+.site-header .brand img[src$="logo.svg"] {
+  transform: translateX(50px) scale(1.2);
+}
+
+/* Increase visual gap between logo and SMname without affecting layout */
+.site-header .brand img[src$="SMname.png"] {
+  transform: translateX(80px) scale(1.5);
+  transform-origin: left center;
 }
 
 .nav {
@@ -294,7 +329,7 @@ img {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 16px;
-  margin-top: 18px;
+  margin-top: 8px;
     transform: translateX(-100px);
 }
 
@@ -331,10 +366,62 @@ img {
   background: var(--color-surface);
 }
 
+/* Move entire Services section content up by 60px (previously 50px) */
+.services .container {
+  margin-top: -60px;
+}
+
 .services-grid {
   display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px;
+  width: auto;
+  height: auto;
+  transform:translateX(100%);
+  margin: 0 auto;
+}
+
+/* New layout to place image beside the grid without disrupting other sections */
+.services-layout {
+  display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 24px;
+  gap: 28px;
+  align-items: start;
+}
+
+.services-illustration img {
+  width: 60%;
+  height: auto;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-md);
+}
+
+/* Set only the service.png image to 10% width without affecting others */
+.services-illustration img[src$="service.png"] {
+  width: 70%;
+  transform: translateY(20px) translateX(-130px);
+}
+
+/* Overlay finance image similarly without affecting layout */
+.services-illustration {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.services-illustration .finance-image {
+  position: static;
+  width: 100%;
+  transform:translateY(60px) translateX(-200px);
+}
+
+/* Prevent the services grid from being shifted when inside the new layout */
+.services-layout .services-grid {
+  width: 100%;
+  transform: none;
+  margin: 0;
 }
 
 .service-card {
@@ -354,11 +441,129 @@ img {
   padding-left: 18px;
 }
 
+.service-card li {
+  list-style: none;
+  padding-left: 0;
+}
+
+/* Cinematic upward scrolling text block */
+.cinematic-scroll {
+  position: relative;
+  height: 200px;
+  overflow: hidden;
+  mask-image: linear-gradient(transparent 0%, black 15%, black 85%, transparent 100%);
+  -webkit-mask-image: linear-gradient(transparent 0%, black 15%, black 85%, transparent 100%);
+  background: rgba(255, 255, 255, 0.04);
+  border-radius: 12px;
+  border: 1px solid rgba(15, 23, 42, 0.06);
+}
+
+.cinematic-tilt {
+  perspective: 800px;
+  height: 100%;
+}
+
+.cinematic-inner {
+  padding: 16px 18px;
+  height: 100%;
+  transform-origin: center bottom;
+  transform: rotateX(8deg) translateZ(0);
+  animation: cinematicScroll 16s linear infinite;
+}
+
+.cinematic-inner p {
+  margin: 0;
+  color: #d5d8dd;
+  line-height: 1.9;
+  font-size: 16px;
+}
+
+@keyframes cinematicScroll {
+  0% { transform: rotateX(8deg) translateY(60%) translateZ(0); }
+  100% { transform: rotateX(8deg) translateY(-120%) translateZ(0); }
+}
+
 /* Properties */
 .properties-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(5, 1fr);
   gap: 24px;
+}
+
+/* Shift the properties tabs 100px to the right */
+.properties-tabs {
+  margin-left: 50px;
+}
+
+/* Active tab styling */
+.properties-tabs [role="tab"].active {
+  background: var(--color-primary);
+  color: white;
+  border-color: var(--color-primary);
+}
+
+/* Pin the first property to the left edge under the logo on desktop */
+.properties-grid .align-under-logo {
+  justify-self: start;
+  margin-left: -340px; margin-right: 280px;
+  translate: 20px; 
+}
+
+@media (max-width: 960px) {
+  .properties-grid .align-under-logo {
+    margin-left: 0;
+    justify-self: stretch;
+  }
+}
+
+/* Make the "Featured Properties" section title white only in the properties section */
+.properties .section-title {
+  color: #ffffff;
+  font-family: 'Orbitron', 'Arial', sans-serif;
+  font-weight: 800;
+  font-size: 36px;
+  text-decoration: underline;
+  letter-spacing: 3px;
+  background: linear-gradient(45deg, #00d4ff, #ff00ff, #00ff88, #ff6b35);
+  background-size: 300% 300%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: futuristicGlow 3s ease-in-out infinite, gradientShift 4s ease-in-out infinite;
+  text-shadow: 
+    0 0 5px rgba(0, 212, 255, 0.8),
+    0 0 10px rgba(0, 212, 255, 0.6),
+    0 0 15px rgba(0, 212, 255, 0.4);
+  position: relative;
+  overflow: hidden;
+  max-width: 100%;
+  transform: translateY(-40px);
+  text-align: center;
+  margin: 0 auto;
+  display: block;
+  width: fit-content;
+}
+
+.properties .section-title::before {
+  display: none;
+}
+
+@keyframes futuristicGlow {
+  0%, 100% { 
+    filter: brightness(1) contrast(1);
+  }
+  50% { 
+    filter: brightness(1.2) contrast(1.1);
+  }
+}
+
+@keyframes gradientShift {
+  0%, 100% { 
+    background-position: 0% 50%;
+  }
+  50% { 
+    background-position: 100% 50%;
+  }
 }
 
 .property-card {
@@ -390,9 +595,125 @@ img {
   margin: 0 0 12px;
 }
 
+/* Smooth zoom animation for highlighted price */
+.zoom-price {
+  display: inline-block;
+  animation: zoomPulse 2.2s ease-in-out infinite;
+  transform-origin: center;
+}
+
+@keyframes zoomPulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.14); }
+  100% { transform: scale(1); }
+}
+
 .property-actions {
   display: flex;
   gap: 10px;
+}
+
+/* Make Property 1 same size as Property 2 */
+.properties-grid .property-card:nth-child(1) {
+  justify-self: start;
+  width: 400px;
+}
+
+/* Ensure Property 2 settles to the left when revealed */
+.properties-grid .property-card:nth-child(2).reveal-on-scroll.is-visible {
+  justify-self: start;
+  transform: translateX(-250px);
+  width: 400px;
+}
+
+/* Properties 3, 4, 5 - Equal sizing and positioning in one line */
+.properties-grid .property-card:nth-child(3),
+.properties-grid .property-card:nth-child(4),
+.properties-grid .property-card:nth-child(5) {
+  transform: scale(0.5);
+  width: 400px;
+  transform-origin: top left;
+  justify-self: start;
+}
+
+.properties-grid .property-card:nth-child(3) {
+  grid-column: 3;
+  transform: translateX(-100px) scale(0.5);
+  width: 400px;
+  transform-origin: top left;
+  justify-self: start;
+}
+
+.properties-grid .property-card:nth-child(4) {
+  grid-column: 4;
+  transform: translateX(-300px) scale(0.5);
+  width: 400px;
+  transform-origin: top left;
+  justify-self: start;
+}
+
+.properties-grid .property-card:nth-child(5) {
+  grid-column: 5;
+  transform: translateX(-500px) scale(0.5);
+  width: 400px;
+  transform-origin: top left;
+  justify-self: start;
+}
+
+.properties-grid .property-card:nth-child(6) {
+  grid-column: 3;
+  transform: translateX(-100px) translateY(-300px) scale(0.5);
+  width: 400px;
+  transform-origin: top left;
+  justify-self: start;
+}
+
+.properties-grid .property-card:nth-child(7) {
+  grid-column: 4;
+  transform: translateX(-300px) translateY(-300px) scale(0.5);
+  width: 400px;
+  transform-origin: top left;
+  justify-self: start;
+}
+
+.properties-grid .property-card:nth-child(8) {
+  grid-column: 5;
+  transform: translateX(-500px) translateY(-300px) scale(0.5);
+  width: 400px;
+  transform-origin: top left;
+  justify-self: start;
+}
+/* Completed Properties Tab - All properties in single line */
+.properties-grid.completed-properties {
+  grid-template-columns: repeat(5, 1fr);
+  gap: 16px;
+}
+
+.properties-grid.completed-properties .property-card {
+  transform: scale(0.4);
+  transform-origin: top center;
+  justify-self: center;
+  width: auto;
+}
+
+.properties-grid.completed-properties .property-card:nth-child(1) {
+  grid-column: 1;
+}
+
+.properties-grid.completed-properties .property-card:nth-child(2) {
+  grid-column: 2;
+}
+
+.properties-grid.completed-properties .property-card:nth-child(3) {
+  grid-column: 3;
+}
+
+.properties-grid.completed-properties .property-card:nth-child(4) {
+  grid-column: 4;
+}
+
+.properties-grid.completed-properties .property-card:nth-child(5) {
+  grid-column: 5;
 }
 
 /* Financial */
@@ -474,7 +795,7 @@ img {
   border-radius: var(--radius);
   border: 1px solid rgba(15, 23, 42, 0.06);
   box-shadow: var(--shadow-sm);
-  padding: 20px;
+  padding: 20px;width: auto;
 }
 
 .contact-info {
@@ -581,6 +902,27 @@ img {
   color: var(--color-primary);
 }
 
+/* Utility: shift element 200px to the right */
+.shift-right-200 {
+  margin-left: 900px;
+  width: 250px;
+  background-color: #367fdf;
+  transform: translateY(-70px); 
+}
+
+/* Utility: shift element 50px to the left */
+.shift-left-50 {
+  margin-left: -50px;
+  background-color: #1b9e77;
+  transform: translateY(-20px);   
+}
+
+/* Make non-clickable property tabs not show hand cursor or hover effects */
+.properties-tabs span.btn {
+  cursor: default;
+  pointer-events: none;
+}
+
 /* Floating WhatsApp */
 .floating-wa {
   position: fixed;
@@ -615,6 +957,14 @@ img {
   transform: translateY(0);
 }
 
+/* Swipe-from-right animation helper for reveal-on-scroll */
+.reveal-on-scroll.from-right {
+  transform: translateX(60px);
+}
+.reveal-on-scroll.from-right.is-visible {
+  transform: translateX(0);
+}
+
 /* Responsive */
 @media (max-width: 960px) {
   /* Reset nav shift on mobile */
@@ -630,6 +980,7 @@ img {
     grid-template-columns: 1fr;
   }
   .services-grid,
+  .services-layout,
   .properties-grid,
   .financial-grid,
   .testimonials-grid,
