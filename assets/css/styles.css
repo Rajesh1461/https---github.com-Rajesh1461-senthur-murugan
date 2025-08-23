@@ -828,6 +828,7 @@ img[src$="SMname.png"] {
   border-radius: var(--radius);
   border: 1px solid rgba(15, 23, 42, 0.06);
   box-shadow: var(--shadow-sm);
+  margin-top: -40px;
 }
 
 .form-field {
@@ -856,6 +857,32 @@ img[src$="SMname.png"] {
   border: 1px solid rgba(15, 23, 42, 0.06);
   box-shadow: var(--shadow-sm);
   padding: 20px;width: auto;
+  margin-top: -40px;
+}
+
+/* Contact info styling with white color for all phone and email */
+.contact-info .info-block .phone-1,
+.contact-info .info-block .phone-2,
+.contact-info .info-block .phone-3,
+.contact-info .info-block .email-1,
+.contact-info .info-block .email-2,
+.contact-info .info-block .email-3,
+.contact-info .info-block .email-4 {
+  color: #90e606;
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.contact-info .info-block .phone-1:hover,
+.contact-info .info-block .phone-2:hover,
+.contact-info .info-block .phone-3:hover,
+.contact-info .info-block .email-1:hover,
+.contact-info .info-block .email-2:hover,
+.contact-info .info-block .email-3:hover,
+.contact-info .info-block .email-4:hover {
+  color: #e0e0e0;
+  text-decoration: underline;
 }
 
 .contact-info {

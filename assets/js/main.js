@@ -78,6 +78,22 @@
     });
   }
 
+  // Email links functionality - simple mailto without interference
+  function setupEmailLinks() {
+    // Remove any existing click handlers that might interfere
+    const emailLinks = document.querySelectorAll('a[href^="mailto:"]');
+    emailLinks.forEach(function (link) {
+      // Remove any existing event listeners
+      link.replaceWith(link.cloneNode(true));
+    });
+    
+    // Add a simple test to ensure mailto works
+    console.log('Email links found:', emailLinks.length);
+    emailLinks.forEach(function(link) {
+      console.log('Email link:', link.href);
+    });
+  }
+
      // Success popup function
    function showSuccessPopup(message) {
      // Remove existing popup if any
@@ -473,6 +489,7 @@
     setupNav();
     setupReveal();
     setupPropertyEnquiry();
+    setupEmailLinks();
     setupForm();
     setupHeaderShadow();
     // Initialize Lottie hero if present
