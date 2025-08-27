@@ -1,7 +1,10 @@
 User-agent: *
 Allow: /
 
+# Prevent indexing of Cloudflare system paths
+Disallow: /cdn-cgi/
+
 # Update this to your live domain
-Sitemap: https://www.example.com/sitemap.xml
+Sitemap: https://finance.multitoolszone.fun/sitemap.xml
 
 
