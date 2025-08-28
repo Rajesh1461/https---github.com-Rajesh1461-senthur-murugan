@@ -4,6 +4,9 @@ Allow: /
 # Prevent indexing of Cloudflare system paths
 Disallow: /cdn-cgi/
 
+# Allow Google verification files
+Allow: /google*.html
+
 # Update this to your live domain
 Sitemap: https://finance.multitoolszone.fun/sitemap.xml
 
